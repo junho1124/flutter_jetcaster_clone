@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jetcaster_clone/src/main_page.dart';
+import 'package:flutter_jetcaster_clone/src/main/main_page.dart';
 import 'package:flutter_jetcaster_clone/src/provider.dart';
 import 'package:provider/provider.dart';
 

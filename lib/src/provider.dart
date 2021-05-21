@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class MyProvider with ChangeNotifier {
   List<String> url = [
@@ -31,11 +30,17 @@ class MyProvider with ChangeNotifier {
 
   int _discoverPress = 1;
 
+  Set<int> _isChecked = {};
+
+  Set<int> get isChecked => _isChecked;
+
   int get onPageChanged => _onPageChanged;
 
   bool get onPressed => _onPressed;
 
   int get discoverPress => _discoverPress;
+
+
 
   void press() {
     _onPressed = !_onPressed;

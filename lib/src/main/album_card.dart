@@ -43,6 +43,7 @@ class _AlbumItemState extends State<AlbumItem> {
             clipBehavior: Clip.hardEdge,
             children: [
               ClipRRect(
+                borderRadius: BorderRadius.circular(30),
                 child: Image.network(
                   "${url.value}",
                   width: 200,
@@ -53,8 +54,16 @@ class _AlbumItemState extends State<AlbumItem> {
                 bottom: 2,
                   right: (url.key == context.read<MyProvider>().onPageChanged) ? 13 : 20,
                   child: IconButton(
-                    icon: Icon(Icons.check_circle_sharp),
-                    onPressed: () {},
+                    icon: Icon(context.read<MyProvider>().isChecked.contains(url.key) ? Icons.check_circle_sharp : Icons.add_circle),
+                    onPressed: () {
+                      setState(() {
+                        if (context.read<MyProvider>().isChecked.contains(url.key)) {
+                        context.read<MyProvider>().isChecked.remove(url.key);
+                        } else {
+                        context.read<MyProvider>().isChecked.add(url.key);
+                        }
+                      });
+                    },
                     iconSize: (url.key == context.read<MyProvider>().onPageChanged) ? 35 : 30,
                   ))
             ],
